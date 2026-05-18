@@ -13,7 +13,7 @@ Add FlakyGuard as a step **after** your normal build:
 
 ```yaml
 - name: Run FlakyGuard
-  uses: your-username/flakyguard@v1
+  uses: iamniket/flakyguard@v1
   with:
     test-command: 'mvn test'
     runs: 3
