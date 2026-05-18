@@ -1,0 +1,27 @@
+name: 'FlakyGuard'
+description: 'Detects flaky tests in Java projects by running the test suite multiple times and comparing results'
+author: 'FlakyGuard'
+
+branding:
+  icon: 'shield'
+  color: 'green'
+
+inputs:
+  test-command:
+    description: 'The command to run your tests (e.g., "mvn test")'
+    required: true
+  runs:
+    description: 'Number of times to run the test suite'
+    required: false
+    default: '3'
+  github-token:
+    description: 'GitHub token for posting PR comments'
+    required: true
+  on-flaky:
+    description: 'Action when flaky tests are detected: "warn" (post comment only) or "fail" (post comment and fail the build)'
+    required: false
+    default: 'warn'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
